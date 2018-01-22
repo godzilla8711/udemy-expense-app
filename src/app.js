@@ -28,21 +28,31 @@ const EditExpenseComponent = () =>  (
   </div>
 );
 
-const HelpComponent =() => (
+const HelpComponent = () => (
   <div>
     This is the Help component
   </div>
 );
 
-const routes = (
+const NotFoundPage = () => (
+  <div>
+    Sorry, page not found
+  </div>
+);
+
+const AppRouter = (
   <BrowserRouter>
     <div>
-      <Route path="/" component={ExpenseDashboardComponent} exact={true}/>
-      <Route path="/create" component={AddExpenseComponent} />
-      <Route path="/edit" component={EditExpenseComponent} />
-      <Route path="/help" component={HelpComponent} />
+      <Header />
+      <Switch>
+        <Route path="/" component={ExpenseDashboardComponent} exact={true}/>
+        <Route path="/create" component={AddExpenseComponent} />
+        <Route path="/edit" component={EditExpenseComponent} />
+        <Route path="/help" component={HelpComponent} />
+        <Route component={NotFoundPage} />
+      </Switch>
     </div>
   </BrowserRouter>
 );
 
-ReactDOM.render(routes, document.getElementById('app'));
+ReactDOM.render(AppRouter, document.getElementById('app'));
