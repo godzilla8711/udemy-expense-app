@@ -32,8 +32,9 @@ const unsubscribe = store.subscribe(() => {
 });
 
 store.dispatch({ type: 'INCREMENT' });
-store.dispatch({ type: 'INCREMENT' });
+store.dispatch({ type: 'INCREMENT', incrementBy: 4 });
 store.dispatch({ type: 'RESET' });
+store.dispatch({ type: 'DECREMENT', decrementBy: 2});
 store.dispatch({ type: 'DECREMENT' });
 
 unsubscribe();
