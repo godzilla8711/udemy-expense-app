@@ -20,7 +20,7 @@ function addExpense(expense) {
       description: expense.description || null,
       note: expense.note || null,
       amount: expense.amount || null,
-      created: expense.createdAt || null
+      createdAt: expense.createdAt || null
     }
   };
 }

@@ -8,7 +8,7 @@ const DEFAULT_FILTERS = {
   endDate: undefined
 };
 
-function filterReducer(state = DEFAULT_FILTERS, action) {
+export function filterReducer(state = DEFAULT_FILTERS, action) {
   switch (action.type) {
     case 'FILTER_TEXT': {
       let filters = _.cloneDeep(state);
@@ -34,5 +34,3 @@ function filterReducer(state = DEFAULT_FILTERS, action) {
       return state;
   }
 }
-
-export default filterReducer;

@@ -1,31 +1,27 @@
-const actionGenerator = {
-  filterText(text = '') {
-    return {
-      type: 'FILTER_TEXT',
-      text
-    };
-  },
-
-  sortByType(sortBy) {
-    return {
-      type: 'SORT_BY_TYPE',
-      sortBy
-    };
-  },
-
-  setStartDate(startDate) {
-    return {
-      type: 'SET_START_DATE',
-      startDate
-    };
-  },
-
-  setEndDate(endDate) {
-    return {
-      type: 'SET_END_DATE',
-      endDate
-    };
-  }
+export function filterText(text = '') {
+  return {
+    type: 'FILTER_TEXT',
+    text
+  };
 }
 
-export default actionGenerator;
+export function sortByType(sortBy) {
+  return {
+    type: 'SORT_BY_TYPE',
+    sortBy
+  };
+}
+
+export function setStartDate(startDate) {
+  return {
+    type: 'SET_START_DATE',
+    startDate
+  };
+}
+
+export function setEndDate(endDate) {
+  return {
+    type: 'SET_END_DATE',
+    endDate
+  };
+}

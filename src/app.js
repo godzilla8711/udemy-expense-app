@@ -1,42 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider, connect } from 'react-redux';
 import AppRouter from './routers/AppRouter';
-import initializeStore from './stores/expense';
-import expenseActionGenerator from './actions/expense';
-import filterActionGenerator from './actions/filter';
+import { configureStore } from './stores/configureStore';
 import getVisibleExpenses from './selectors/expense';
+import { addExpense, removeExpense, editExpense } from './actions/expense';
+import { filterText, sortByType, setStartDate, setEndDate } from './actions/filter';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
-const { addExpense, removeExpense, editExpense } = expenseActionGenerator;
-const { filterText, sortByType, setStartDate, setEndDate } = filterActionGenerator;
+const store = configureStore();
+console.log(store.getState());
 
-ReactDOM.render(<AppRouter />, document.getElementById('app'));
+const content = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+);
 
-const store = initializeStore();
+ReactDOM.render(content, document.getElementById('app'));
 
-store.subscribe(() => {
-  // console.log(store.getState());
-  const { expenses, filters } = store.getState();
-  console.log(getVisibleExpenses(expenses, filters));
-});
-
-let addExpenseAction = store.dispatch(addExpense({ description: 'December Rent', amount: 7500 }));
-let removedExpenseAction = store.dispatch(removeExpense(addExpenseAction.expense.expenseId));
-addExpenseAction = store.dispatch(addExpense({ description: 'January Rent', amount: 6300 }));
-addExpenseAction = store.dispatch(addExpense({ description: 'Februay Rent', amount: 6400 }));
-let editExpenseAction = store.dispatch(editExpense(
-  addExpenseAction.expense.expenseId, { description: 'March Rent', note: 'Updated month of rent' }
-));
-
+store.dispatch(addExpense({ description: 'January Rent', amount: 570, createdAt: 150}));
+store.dispatch(addExpense({ description: 'March Rent', amount: 630, createdAt: 525}));
 store.dispatch(filterText('March'));
-store.dispatch(filterText());
-store.dispatch(sortByType('date'));
-store.dispatch(sortByType());
-store.dispatch(setStartDate(120));
-store.dispatch(setStartDate());
-store.dispatch(setEndDate(145));
-store.dispatch(setEndDate());
+const result = getVisibleExpenses(store.getState().expenses, store.getState().filters);
+console.log(result);
 
-store.dispatch(filterText('March'));
-store.dispatch(filterText());

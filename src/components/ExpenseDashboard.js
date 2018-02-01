@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import ExpenseList from './ExpenseList';
+import ExpenseListFilter from './ExpenseListFilter';
+
 class ExpenseDashboard extends React.Component {
   render() {
     return (
       <div>
-        This is the Expense Dashboard Component.
+        <ExpenseListFilter />
+        <ExpenseList />
       </div>
     );
   }

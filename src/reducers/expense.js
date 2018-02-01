@@ -1,6 +1,6 @@
 const DEFAULT_EXPENSES = [];
 
-function expenseReducer(state = DEFAULT_EXPENSES, action) {
+export function expenseReducer(state = DEFAULT_EXPENSES, action) {
   switch (action.type) {
     case 'ADD_EXPENSE':
       return state.concat(action.expense)
@@ -18,5 +18,3 @@ function expenseReducer(state = DEFAULT_EXPENSES, action) {
       return state
   };
 };
-
-export default expenseReducer;

@@ -1,0 +1,42 @@
+// ---------------------------- Sample Data
+// const sampleData = {
+//   expenses: [{
+//     id: 1234,
+//     description: 'January Rent',
+//     note: 'Final rent check for January',
+//     amount: 54500,
+//     createdAt: 0
+//   }],
+//   filters: {
+//     text: 'rent',
+//     sortBy: 'amount', // date or amount
+//     startDate: undefined,
+//     endDate: undefined
+//   }
+// };
+//
+// ---------------------------- Store functions
+// store.subscribe(() => {
+//   const { expenses, filters } = store.getState();
+//   console.log(getVisibleExpenses(expenses, filters));
+// });
+//
+// let addExpenseAction = store.dispatch(addExpense({ description: 'December Rent', amount: 7500 }));
+// let removedExpenseAction = store.dispatch(removeExpense(addExpenseAction.expense.expenseId));
+// addExpenseAction = store.dispatch(addExpense({ description: 'January Rent', amount: 6300 }));
+// addExpenseAction = store.dispatch(addExpense({ description: 'Februay Rent', amount: 6400 }));
+// let editExpenseAction = store.dispatch(editExpense(
+//   addExpenseAction.expense.expenseId, { description: 'March Rent', note: 'Updated month of rent' }
+// ));
+//
+// store.dispatch(filterText('March'));
+// store.dispatch(filterText());
+// store.dispatch(sortByType('date'));
+// store.dispatch(sortByType());
+// store.dispatch(setStartDate(120));
+// store.dispatch(setStartDate());
+// store.dispatch(setEndDate(145));
+// store.dispatch(setEndDate());
+//
+// store.dispatch(filterText('March'));
+// store.dispatch(filterText());
