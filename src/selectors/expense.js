@@ -17,10 +17,3 @@ function getVisibleExpenses(expenses, filters) {
 }
 
 export default getVisibleExpenses;
-
-//   filters: {
-//     text: 'rent',
-//     sortBy: 'amount', // date or amount
-//     startDate: undefined,
-//     endDate: undefined
-//   }

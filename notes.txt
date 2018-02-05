@@ -40,3 +40,14 @@
 //
 // store.dispatch(filterText('March'));
 // store.dispatch(filterText());
+
+------------------------- Notes
+Using Should in ES2015
+It isn’t possible to chain a function call from an ES2015 import statement – it has to go on its own line, which looks a little verbose:
+
+import chai from 'chai';
+chai.should();
+For a cleaner look, you can do this instead:
+
+import 'chai/should';
+
