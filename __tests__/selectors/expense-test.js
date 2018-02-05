@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+
 import getVisibleExpenses from '../../src/selectors/expense';
 
 describe('Get visible expenses', () => {
