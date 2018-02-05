@@ -1,4 +1,4 @@
-import {createStore, combineReducers} from 'redux';
+import { createStore, combineReducers } from 'redux';
 import uuid from 'uuid';
 import _ from 'lodash';
 

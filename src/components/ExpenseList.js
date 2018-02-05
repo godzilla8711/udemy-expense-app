@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
 import ExpenseListItem from './ExpenseListItem';
@@ -11,10 +10,10 @@ class ExpenseList extends React.Component {
       <div>
         <p>This is the Expense Items with {this.props.expenses.length} expenses</p>
         {this.props.expenses.map(expense => {
-          return <ExpenseListItem key={expense.description} expense={expense} />
+          return <ExpenseListItem key={expense.description} expense={expense} />;
         })}
       </div>
-    )
+    );
   }
 }
 

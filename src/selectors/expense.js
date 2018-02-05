@@ -1,12 +1,26 @@
-function getVisibleExpenses(expenses, filter) {
-  if (!filter.text) {
-    // No filter text, so allow all items.
-    return expenses;
-  }
+import _ from 'lodash';
+import moment from 'moment';
 
-  // Filter text was specified so apply it.
-  console.log(expenses);
-  return _.filter(expenses, expense => expense.description.indexOf(filter.text) > -1);
+function getVisibleExpenses(expenses, filters) {
+  const text = filters.text ? _.toLower(filters.text) : '';
+  const startDate = filters.startDate || moment(filters.startDate);
+  const endDate = filters.endDate || moment(filters.endDate);
+
+  const visibleExpenses = _.filter(expenses, expense => {
+    const description = expense.description ? _.toLower(expense.description) : '';
+    const isMatchingText = !text || description.includes(text);
+
+    return isMatchingText;
+  });
+
+  return visibleExpenses;
 }
 
 export default getVisibleExpenses;
+
+//   filters: {
+//     text: 'rent',
+//     sortBy: 'amount', // date or amount
+//     startDate: undefined,
+//     endDate: undefined
+//   }

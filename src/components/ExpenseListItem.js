@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class ExpenseListItem extends React.Component {
   render() {
-    const expense = this.props.expense;
+    const { expense } = this.props;
     return (
       <div>
         <h3>Description: {expense.description}</h3>

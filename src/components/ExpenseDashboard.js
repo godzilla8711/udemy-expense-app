@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import ExpenseList from './ExpenseList';
 import ExpenseListFilter from './ExpenseListFilter';
