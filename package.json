@@ -3,6 +3,17 @@
   "version": "0.0.1",
   "description": "Expense App",
   "main": "index.js",
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testRegex": "\\-test\\.js$",
+    "collectCoverage": true,
+    "coverageDirectory": "reports",
+    "collectCoverageFrom": [
+      "src/**"
+    ]
+  },
   "scripts": {
     "build": "webpack",
     "test": "jest",
