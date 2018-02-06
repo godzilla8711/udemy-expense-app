@@ -14,13 +14,22 @@ describe('expense action generator', () => {
 
     const result = addExpense(testExpenseData);
     expect(result).to.exist;
+
     expect(result).to.have.property('type', 'ADD_EXPENSE');
     expect(result).to.have.property('expense');
     expect(result.expense).to.have.property('expenseId');
     expect(result.expense.expenseId).to.be.string;
     expect(result.expense.expenseId).not.to.be.empty;
-
     const expenseWithoutId = _.omit(result.expense, 'expenseId');
     expect(expenseWithoutId).to.deep.equal(testExpenseData);
+
+    // or...
+    expect(result).to.deep.equal({
+      type: 'ADD_EXCPENSE',
+      expense: {
+        id: expect.any(String),
+        ...testExpenseData
+      }
+    });
   });
 });
