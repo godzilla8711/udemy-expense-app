@@ -1,19 +1,35 @@
 import _ from 'lodash';
 import moment from 'moment';
 
-function getVisibleExpenses(expenses, filters) {
+export default (expenses, filters) => {
   const text = filters.text ? _.toLower(filters.text) : '';
-  const startDate = filters.startDate || moment(filters.startDate);
-  const endDate = filters.endDate || moment(filters.endDate);
+  const startDate = filters.startDate && moment(filters.startDate);
+  const endDate = filters.endDate && moment(filters.endDate);
+  const { sortBy } = filters;
 
+  // Filter out expenses based on criteria.
   const visibleExpenses = _.filter(expenses, expense => {
     const description = expense.description ? _.toLower(expense.description) : '';
-    const isMatchingText = !text || description.includes(text);
 
-    return isMatchingText;
+    const isMatchingText = !text || description.includes(text);
+    const isMatchingStartDate = !startDate || startDate.isSameOrBefore(expense.createdAt, 'day');
+    const isMatchingEndDate = !endDate || endDate.isSameOrAfter(expense.createdAt, 'day');
+
+    return (isMatchingText && isMatchingStartDate && isMatchingEndDate);
   });
 
-  return visibleExpenses;
-}
+  // Sort expenses based on criteria.
+  let sortedExpenses;
+  if (sortBy === 'amount') {
+    // Sort by amount.
+    sortedExpenses = _.sortBy(visibleExpenses, 'amount');
+  } else if (sortBy === 'date') {
+    // Sort by date.
+    sortedExpenses = _.sortBy(visibleExpenses, 'createdAt');
+  } else {
+    // Perform no sort.
+    sortedExpenses = visibleExpenses;
+  }
 
-export default getVisibleExpenses;
+  return sortedExpenses;
+};
