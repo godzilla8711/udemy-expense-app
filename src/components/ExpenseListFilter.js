@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { filterText } from '../actions/filter';
+import { filterText } from '../actions/filter-action';
 
 class ExpenseListFilter extends React.Component {
   render() {

@@ -25,5 +25,13 @@
     "react/jsx-filename-extension": "off",
     "react/jsx-max-props-per-line": "off",
     "react/prefer-stateless-function": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": "*-test.js",
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    }
+  ]
 }

@@ -6,8 +6,8 @@ import 'normalize.css/normalize.css';
 import AppRouter from './routers/AppRouter';
 import configureStore from './stores/configureStore';
 import getVisibleExpenses from './selectors/expense';
-import { addExpense, removeExpense, editExpense } from './actions/expense';
-import { filterText, sortByType, setStartDate, setEndDate } from './actions/filter';
+import { addExpense, removeExpense, editExpense } from './actions/expense-action';
+import { filterText, sortByType, setStartDate, setEndDate } from './actions/filter-action';
 import './styles/styles.scss';
 
 const store = configureStore();
