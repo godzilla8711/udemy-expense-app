@@ -1,6 +1,6 @@
 {
   "name": "expense-app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Expense App",
   "main": "index.js",
   "jest": {
@@ -8,7 +8,7 @@
       "/node_modules/"
     ],
     "testRegex": "\\-test\\.js$",
-    "collectCoverage": true,
+    "collectCoverage": false,
     "coverageDirectory": "reports",
     "collectCoverageFrom": [
       "src/**"

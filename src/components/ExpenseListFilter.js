@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { filterText } from '../actions/filter-action';
+import { filterText, sortByType } from '../actions/filter-action';
 
 class ExpenseListFilter extends React.Component {
   render() {
@@ -13,6 +13,16 @@ class ExpenseListFilter extends React.Component {
             this.props.dispatch(filterText(e.target.value));
           }}
         />
+        <select value={this.props.filters.sortBy} onChange={e => {
+          const selectedValue = e.target.value;
+          if (selectedValue) {
+            this.props.dispatch(sortByType(selectedValue));
+          }
+          }}
+        >
+          <option value="amount">Amount</option>
+          <option value="date">Date</option>
+        </select>
       </div>
     );
   }

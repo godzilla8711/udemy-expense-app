@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 const DEFAULT_FILTERS = {
   text: '',
-  sortBy: 'amount',
+  sortBy: 'date',
   startDate: undefined,
   endDate: undefined
 };
