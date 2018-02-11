@@ -8,7 +8,7 @@ class ExpenseList extends React.Component {
   render() {
     return (
       <div>
-        <p>This is the Expense Items with {this.props.expenses.length} expenses</p>
+        <h2>List of {this.props.expenses.length} expenses</h2>
         {this.props.expenses.map(expense => {
           return <ExpenseListItem key={expense.description} expense={expense} />;
         })}
