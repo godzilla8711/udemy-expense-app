@@ -40,7 +40,9 @@ class ExpenseForm extends React.Component {
   onChangeAmount(e) {
     const amount = e.target.value;
 
-    if (amount) {
+    // Establish the valid mask for currency.  This is different than the validation performed on submit.
+    const regexCurrency = /^\d{0,}(?:\.\d{0,2})?$/;
+    if (amount.match(regexCurrency)) {
       this.setState(() => ({ amount }));
     }
   }
