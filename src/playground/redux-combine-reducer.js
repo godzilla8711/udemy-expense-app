@@ -20,7 +20,7 @@ function addExpense(expense) {
       description: expense.description || null,
       note: expense.note || null,
       amount: expense.amount || null,
-      createdAt: expense.createdAt || null
+      createdOn: expense.createdOn || null
     }
   };
 }
@@ -169,7 +169,7 @@ const sampleData = {
     description: 'January Rent',
     note: 'Final rent check for January',
     amount: 54500,
-    createdAt: 0
+    createdOn: 0
   }],
   filters: {
     text: 'rent',

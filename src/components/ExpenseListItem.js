@@ -8,7 +8,7 @@ class ExpenseListItem extends React.Component {
     return (
       <div>
         <h3>Description: {expense.description}</h3>
-        <p>Amount: {expense.amount}   Created Date: {expense.createdAt}</p>
+        <p>Amount: {expense.amount}   Created Date: {expense.createdOn}</p>
         <button onClick={e => this.props.dispatch(removeExpense(expense.expenseId))} >
           Remove Expense
         </button>

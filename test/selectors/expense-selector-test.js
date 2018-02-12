@@ -11,19 +11,19 @@ describe('Get visible expenses', () => {
     testExpenses = [{
       id: 234,
       description: 'August Rent',
-      createdAt: '2018-08-07',
+      createdOn: '2018-08-07',
       amount: 63500,
       note: 'Rent check for March'
     }, {
       id: 234,
-      createdAt: '2018-03-04',
+      createdOn: '2018-03-04',
       description: 'March Rent',
       note: 'Rent check for March'
     }, {
       id: 123,
       description: 'January Rent',
       amount: 57000,
-      createdAt: '2018-01-05',
+      createdOn: '2018-01-05',
       note: 'Rent check for January'
     }];
 

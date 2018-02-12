@@ -12,8 +12,8 @@ export default (expenses, filters) => {
     const description = expense.description ? _.toLower(expense.description) : '';
 
     const isMatchingText = !text || description.includes(text);
-    const isMatchingStartDate = !startDate || startDate.isSameOrBefore(expense.createdAt, 'day');
-    const isMatchingEndDate = !endDate || endDate.isSameOrAfter(expense.createdAt, 'day');
+    const isMatchingStartDate = !startDate || startDate.isSameOrBefore(expense.createdOn, 'day');
+    const isMatchingEndDate = !endDate || endDate.isSameOrAfter(expense.createdOn, 'day');
 
     return (isMatchingText && isMatchingStartDate && isMatchingEndDate);
   });
@@ -25,7 +25,7 @@ export default (expenses, filters) => {
     sortedExpenses = _.sortBy(visibleExpenses, 'amount');
   } else if (sortBy === 'date') {
     // Sort by date.
-    sortedExpenses = _.sortBy(visibleExpenses, 'createdAt');
+    sortedExpenses = _.sortBy(visibleExpenses, 'createdOn');
   } else {
     // Perform no sort.
     sortedExpenses = visibleExpenses;

@@ -20,10 +20,12 @@ const content = (
 
 ReactDOM.render(content, document.getElementById('app'));
 
-store.dispatch(addExpense({ description: 'January Rent', amount: 570, createdAt: 150 }));
-store.dispatch(addExpense({ description: 'October Rent', amount: 1430, createdAt: 1308 }));
-store.dispatch(addExpense({ description: 'March Rent', amount: 101, createdAt: 525 }));
-store.dispatch(filterText(''));
-const result = getVisibleExpenses(store.getState().expenses, store.getState().filters);
-console.log(result);
+// Initialize the list of expenses.
+store.dispatch(addExpense({ description: 'January Rent', amount: 570, createdOn: 150 }));
+store.dispatch(addExpense({ description: 'October Rent', amount: 1430, createdOn: 1308 }));
+store.dispatch(addExpense({ description: 'March Rent', amount: 101, createdOn: 525 }));
+
+// store.dispatch(filterText(''));
+// const result = getVisibleExpenses(store.getState().expenses, store.getState().filters);
+// console.log(result);
 

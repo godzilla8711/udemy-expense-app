@@ -9,7 +9,7 @@ describe('expense action generator', () => {
       description: 'January Rent',
       note: 'Final rent for January',
       amount: 54500,
-      createdAt: '2018-02-05'
+      createdOn: '2018-02-05'
     };
 
     const result = addExpense(testExpenseData);
@@ -29,7 +29,7 @@ describe('expense action generator', () => {
       description: null,
       note: null,
       amount: null,
-      createdAt: null
+      createdOn: null
     });
     expect(result.expense).to.have.property('expenseId').that.is.not.empty;
   });
@@ -40,7 +40,7 @@ describe('expense action generator', () => {
       description: 'March Rent',
       note: 'Final rent for March',
       amount: 63000,
-      createdAt: '2018-02-07'
+      createdOn: '2018-02-07'
     };
 
     const result = editExpense(testExpenseId, testChangedExpenseData);
