@@ -1,0 +1,18 @@
+{
+  "testPathIgnorePatterns": [
+    "/node_modules/"
+  ],
+  "testRegex": "\\-test\\.js$",
+  "collectCoverage": true,
+  "coverageDirectory": "reports",
+  "collectCoverageFrom": [
+    "src/**"
+  ],
+  "setupFiles": [
+    "raf/polyfill",
+    "<rootDir>/test/setupTest.js"
+  ],
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ]
+}
