@@ -5,7 +5,7 @@ import filterReducer from '../../src/reducers/filter-reducer';
 
 describe('filter reducer', () => {
   it('creates initial state', () => {
-    const result = filterReducer(undefined, {type: '@@INIT'});
+    const result = filterReducer(undefined, { type: '@@INIT' });
     expect(result).to.exist;
     expect(result).to.deep.equal({
       description: '',

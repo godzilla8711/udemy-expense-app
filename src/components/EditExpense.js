@@ -4,7 +4,7 @@ class EditExpense extends React.Component {
   render() {
     return (
       <div>
-        This is the Edit Expense component.
+        Edit the details of Expense ID
       </div>
     );
   }

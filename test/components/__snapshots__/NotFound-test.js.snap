@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render renders component 1`] = `
+<div>
+  <p>
+    The request page is not found.  Please click 
+    <Link
+      replace={false}
+      to="/"
+    >
+      here
+    </Link>
+     to return to the Dashboard.
+  </p>
+</div>
+`;

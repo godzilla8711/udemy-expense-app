@@ -3,7 +3,7 @@
     "/node_modules/"
   ],
   "testRegex": "\\-test\\.js$",
-  "collectCoverage": true,
+  "collectCoverage": false,
   "coverageDirectory": "reports",
   "collectCoverageFrom": [
     "src/**"

@@ -90,7 +90,7 @@ class ExpenseForm extends React.Component {
   render() {
     return (
       <div>
-        <h2>Expense Form</h2>
+        <h2>Expense Form -- expense ID ${this.state.expenseId}</h2>
         {this.state.errorMessage && <p>Error: {this.state.errorMessage}</p>}
         <form onSubmit={this.onSubmitAdd}>
           <input

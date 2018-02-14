@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render renders component with empty items 1`] = `
+<div>
+  <h2>
+    List of 
+    0
+     expenses
+  </h2>
+</div>
+`;
+
+exports[`render renders component with items 1`] = `
+<div>
+  <h2>
+    List of 
+    3
+     expenses
+  </h2>
+  <Connect(ExpenseListItem)
+    expense={
+      Object {
+        "amount": 54500,
+        "createdOn": 1514955600000,
+        "description": "January Rent",
+        "expenseId": 1001,
+        "note": "Final rent check for January",
+      }
+    }
+    key="January Rent"
+  />
+  <Connect(ExpenseListItem)
+    expense={
+      Object {
+        "amount": 72500,
+        "createdOn": 1525665600000,
+        "description": "May Rent",
+        "expenseId": 1002,
+        "note": "Final rent check for May",
+      }
+    }
+    key="May Rent"
+  />
+  <Connect(ExpenseListItem)
+    expense={
+      Object {
+        "amount": 38500,
+        "createdOn": 1520226000000,
+        "description": "February Rent",
+        "expenseId": 1003,
+        "note": "Final rent check for February",
+      }
+    }
+    key="February Rent"
+  />
+</div>
+`;

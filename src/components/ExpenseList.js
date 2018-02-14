@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ExpenseListItem from './ExpenseListItem';
 import getVisibleExpenses from '../selectors/expense-selector';
 
-class ExpenseList extends React.Component {
+export class ExpenseList extends React.Component {
   render() {
     return (
       <div>
