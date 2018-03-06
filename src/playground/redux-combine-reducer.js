@@ -85,29 +85,29 @@ function expenseReducer(state = DEFAULT_EXPENSES, action) {
         return expense;
       });
     default:
-      return state
-  };
-};
+      return state;
+  }
+}
 
 function filterReducer(state = DEFAULT_FILTERS, action) {
   switch (action.type) {
     case 'FILTER_TEXT': {
-      let filters = _.cloneDeep(state);
+      const filters = _.cloneDeep(state);
       filters.text = action.text || DEFAULT_FILTERS.text;
       return filters;
     }
     case 'SORT_BY_TYPE': {
-      let filters = _.cloneDeep(state);
+      const filters = _.cloneDeep(state);
       filters.sortBy = action.sortBy || DEFAULT_FILTERS.sortBy;
       return filters;
     }
     case 'SET_START_DATE': {
-      let filters = _.cloneDeep(state);
+      const filters = _.cloneDeep(state);
       filters.startDate = action.startDate || DEFAULT_FILTERS.startDate;
       return filters;
     }
     case 'SET_END_DATE': {
-      let filters = _.cloneDeep(state);
+      const filters = _.cloneDeep(state);
       filters.endDate = action.endDate || DEFAULT_FILTERS.endDate;
       return filters;
     }
@@ -125,12 +125,6 @@ const store = createStore(
   })
 );
 
-store.subscribe(() => {
-  // console.log(store.getState());
-  const {expenses, filters} = store.getState();
-  console.log(getVisibleExpenses(expenses, filters));
-});
-
 function getVisibleExpenses(expenses, filter) {
   if (!filter.text) {
     // No filter text, so allow all items.
@@ -141,6 +135,12 @@ function getVisibleExpenses(expenses, filter) {
   console.log(expenses);
   return _.filter(expenses, expense => expense.description.indexOf(filter.text) > -1);
 }
+
+store.subscribe(() => {
+  // console.log(store.getState());
+  const { expenses, filters } = store.getState();
+  console.log(getVisibleExpenses(expenses, filters));
+});
 
 let addExpenseAction = store.dispatch(addExpense({ description: 'December Rent', amount: 7500 }));
 let removedExpenseAction = store.dispatch(removeExpense(addExpenseAction.expense.expenseId));

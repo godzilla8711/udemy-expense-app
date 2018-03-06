@@ -17,12 +17,17 @@ describe('expense reducer', () => {
   });
 
   it('adds expense', () => {
-    const result = expenseReducer([testExpenseItems[0]], { type: 'ADD_EXPENSE', expense: testExpenseItems[2] });
+    const result = expenseReducer([testExpenseItems[0]], { type: 'ADD_EXPENSE', payload: testExpenseItems[2] });
     expect(result).to.deep.equal([testExpenseItems[0], testExpenseItems[2]]);
   });
 
   it('deletes expense', () => {
-    const result = expenseReducer(testExpenseItems, { type: 'REMOVE_EXPENSE', expenseId: testExpenseItems[0].expenseId });
+    const result = expenseReducer(testExpenseItems, {
+      type: 'REMOVE_EXPENSE',
+      payload: {
+        expenseId: testExpenseItems[0].expenseId
+      }
+    });
     expect(result).to.deep.equal([testExpenseItems[1], testExpenseItems[2]]);
   });
 
@@ -31,7 +36,13 @@ describe('expense reducer', () => {
       description: 'test value',
       amount: 12345
     };
-    const result = expenseReducer(testExpenseItems, { type: 'EDIT_EXPENSE', expenseId: testExpenseItems[1].expenseId, changedData });
+    const result = expenseReducer(testExpenseItems, {
+      type: 'EDIT_EXPENSE',
+      payload: {
+        expenseId: testExpenseItems[1].expenseId,
+        changedData
+      }
+    });
     expect(result).to.deep.equal([testExpenseItems[0], Object.assign({}, testExpenseItems[1], changedData), testExpenseItems[2]]);
   });
 });

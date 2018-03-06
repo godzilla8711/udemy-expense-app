@@ -15,23 +15,23 @@ describe('expense action generator', () => {
     const result = addExpense(testExpenseData);
     expect(result).to.exist;
     expect(result).to.have.property('type', 'ADD_EXPENSE');
-    expect(result).to.have.property('expense');
-    expect(result.expense).to.include(testExpenseData);
-    expect(result.expense).to.have.property('expenseId').that.is.not.empty;
+    expect(result).to.have.property('payload');
+    expect(result.payload).to.include(testExpenseData);
+    expect(result.payload).to.have.property('expenseId').that.is.not.empty;
   });
 
   it('adds expense with default values', () => {
     const result = addExpense({});
     expect(result).to.exist;
     expect(result).to.have.property('type', 'ADD_EXPENSE');
-    expect(result).to.have.property('expense');
-    expect(result.expense).to.include({
+    expect(result).to.have.property('payload');
+    expect(result.payload).to.include({
       description: null,
       note: null,
       amount: null,
       createdOn: null
     });
-    expect(result.expense).to.have.property('expenseId').that.is.not.empty;
+    expect(result.payload).to.have.property('expenseId').that.is.not.empty;
   });
 
   it('edits expense', () => {
@@ -46,9 +46,10 @@ describe('expense action generator', () => {
     const result = editExpense(testExpenseId, testChangedExpenseData);
     expect(result).to.exist;
     expect(result).to.have.property('type', 'EDIT_EXPENSE');
-    expect(result).to.have.property('expenseId', testExpenseId);
-    expect(result).to.have.property('changedData');
-    expect(result.changedData).to.include(testChangedExpenseData);
+    expect(result.payload).to.exist;
+    expect(result.payload).to.have.property('expenseId', testExpenseId);
+    expect(result.payload).to.have.property('changedData');
+    expect(result.payload.changedData).to.include(testChangedExpenseData);
   });
 
   it('remove expense', () => {
@@ -57,6 +58,7 @@ describe('expense action generator', () => {
     const result = removeExpense(testExpenseId);
     expect(result).to.exist;
     expect(result).to.have.property('type', 'REMOVE_EXPENSE');
-    expect(result).to.have.property('expenseId', testExpenseId);
+    expect(result.payload).to.exist;
+    expect(result.payload).to.have.property('expenseId', testExpenseId);
   });
 });

@@ -8,7 +8,7 @@ class ExpenseListItem extends React.Component {
     const { expense } = this.props;
     return (
       <div>
-        <h3>Description: <Link to="/edit">{expense.description}</Link></h3>
+        <h3>Description: <Link to={`/edit?id=${expense.expenseId}`}>{expense.description}</Link></h3>
         <p>Amount: {expense.amount}   Created Date: {expense.createdOn}</p>
         <button onClick={e => this.props.dispatch(removeExpense(expense.expenseId))} >
           Remove Expense

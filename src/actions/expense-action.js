@@ -3,7 +3,7 @@ import uuid from 'uuid';
 export function addExpense(expense) {
   return {
     type: 'ADD_EXPENSE',
-    expense: {
+    payload: {
       expenseId: uuid(),
       description: expense.description || null,
       note: expense.note || null,
@@ -16,14 +16,18 @@ export function addExpense(expense) {
 export function editExpense(expenseId, changedData) {
   return {
     type: 'EDIT_EXPENSE',
-    expenseId,
-    changedData
+    payload: {
+      expenseId,
+      changedData
+    }
   };
 }
 
 export function removeExpense(expenseId) {
   return {
     type: 'REMOVE_EXPENSE',
-    expenseId
+    payload: {
+      expenseId
+    }
   };
 }
