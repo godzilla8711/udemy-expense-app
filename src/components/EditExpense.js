@@ -1,15 +1,36 @@
+import _ from 'lodash';
 import React from 'react';
+import { connect } from 'react-redux';
+import ExpenseForm from './ExpenseForm';
+
+function getExpenseId(props) {
+  const query = new URLSearchParams(props.location.search);
+  const expenseId = query.get('id');
+  return expenseId;
+}
 
 class EditExpense extends React.Component {
   render() {
-    const query = new URLSearchParams(this.props.location.search);
-    const expenseId = query.get('id');
     return (
       <div>
-        Edit the details of Expense ID {expenseId}
+        <p>Edit the details of Expense ID {getExpenseId(this.props)}</p>
+        <ExpenseForm
+          expense={this.props.expense}
+          onSubmit={expense => {
+            console.log(expense);
+          }}
+        />
       </div>
     );
   }
 }
 
-export default EditExpense;
+function mapStateToProps(state, props) {
+  const expenseId = getExpenseId(props);
+  const expense = _.find(state.expenses, { expenseId });
+  return {
+    expense
+  };
+}
+
+export default connect(mapStateToProps)(EditExpense);
