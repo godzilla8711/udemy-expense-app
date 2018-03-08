@@ -10,6 +10,7 @@ export default function expenseReducer(state = DEFAULT_EXPENSES, action) {
     case 'EDIT_EXPENSE':
       return state.map(expense => {
         if (expense.expenseId === action.payload.expenseId) {
+          console.log('Found match!');
           return Object.assign({}, expense, action.payload.changedData);
         }
         return expense;

@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import _ from 'lodash';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
@@ -12,14 +13,18 @@ class ExpenseForm extends React.Component {
     this.onChangeNote = this.onChangeNote.bind(this);
     this.onChangeCreatedOn = this.onChangeCreatedOn.bind(this);
     this.onFocusCreatedOn = this.onFocusCreatedOn.bind(this);
-    this.onSubmitAdd = this.onSubmitAdd.bind(this);
+    this.onSubmitHandler = this.onSubmitHandler.bind(this);
 
     // Set the default state.
+    const description = _.get(props, 'expense.description') || '';
+    const amount = _.get(props, 'expense.amount') ? (props.expense.amount / 100).toString() : '';
+    const createdOn = _.get(props, 'expense.createdOn') ? moment(props.expense.createdOn).utc() : moment.utc();
+    const note = _.get(props, 'expense.note') || '';
     this.state = {
-      description: '',
-      amount: '',
-      createdOn: moment.utc(),
-      note: '',
+      description,
+      amount,
+      createdOn,
+      note,
       calendarFocus: false,
       errorMessage: ''
     };
@@ -64,7 +69,7 @@ class ExpenseForm extends React.Component {
     this.setState(() => ({ calendarFocus: focused }));
   }
 
-  onSubmitAdd(e) {
+  onSubmitHandler(e) {
     // Prevent a server-side post.
     e.preventDefault();
 
@@ -92,7 +97,7 @@ class ExpenseForm extends React.Component {
       <div>
         <h2>Expense Form -- expense ID ${this.state.expenseId}</h2>
         {this.state.errorMessage && <p>Error: {this.state.errorMessage}</p>}
-        <form onSubmit={this.onSubmitAdd}>
+        <form onSubmit={this.onSubmitHandler}>
           <input
             type="text"
             placeholder="Description"
@@ -120,7 +125,7 @@ class ExpenseForm extends React.Component {
             value={this.state.note}
             onChange={this.onChangeNote}
           />
-          <button>Add</button>
+          <button>Save</button>
         </form>
       </div>
     );
