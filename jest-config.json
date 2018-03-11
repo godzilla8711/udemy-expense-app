@@ -3,10 +3,11 @@
     "/node_modules/"
   ],
   "testRegex": "\\-test\\.js$",
-  "collectCoverage": false,
+  "collectCoverage": true,
   "coverageDirectory": "reports",
   "collectCoverageFrom": [
-    "src/**"
+    "src/**",
+    "!src/playground/**"
   ],
   "setupFiles": [
     "raf/polyfill",
