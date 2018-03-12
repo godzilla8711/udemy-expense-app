@@ -17,7 +17,7 @@ export class ExpenseList extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
+export function mapStateToProps(state) {
   return {
     expenses: getVisibleExpenses(state.expenses, state.filters)
   };

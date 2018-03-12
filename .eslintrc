@@ -19,6 +19,7 @@
     "no-unused-vars": "warn",
     "prefer-destructuring": "warn",
     "no-return-assign": [2, "except-parens"],
+    "no-underscore-dangle": "off",
 
     "jsx-a11y/anchor-is-valid": "off",
     "react/prop-types": "warn",
